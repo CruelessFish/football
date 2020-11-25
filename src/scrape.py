@@ -8,7 +8,6 @@ def scrape(year):
                          parse_dates=[1], 
                          encoding= 'unicode_escape'    # referee's name (0405)
                         )
-        data = data.append(df).dropna(axis='columns', how='all')
     except:    # extra commas result in more columns than expected (0304)
         df = pd.read_csv(f"https://www.football-data.co.uk/mmz4281/{season}/E0.csv", 
                          parse_dates=[1], 
@@ -17,7 +16,7 @@ def scrape(year):
                          parse_dates=[1], 
                          encoding= 'unicode_escape',    # referee's name (0405)
                          usecols=list(range(len(df.columns))))
-    df.dropna(axis='columns', how='all', inplace=True)
+    df.dropna(axis='columns', how='all', inplace=True).dropna(axis='rows', how='all')
     df.to_csv(f"data/{season}_E0.csv", index=False)
     return df
 
