@@ -18,7 +18,7 @@ def scrape(year):
                          encoding= 'unicode_escape',    # referee's name (0405)
                          usecols=list(range(len(df.columns))))
     df.dropna(axis='columns', how='all', inplace=True)
-    df.to_csv(f"../data/{season}_E0.csv", index=False)
+    df.to_csv(f"data/{season}_E0.csv", index=False)
     return df
 
 if __name__ == "__main__":
