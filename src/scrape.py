@@ -22,6 +22,7 @@ def scrape(year):
     return df
 
 if __name__ == "__main__":
-    for year in np.arange(1993, 2020):
+#     for year in np.arange(1993, 2020):
+    for year in np.arange(2020, 2021):
         print(year)
         scrape(year)
